@@ -21,34 +21,37 @@ const ToDo = () =>{
         const newTask={
             id: Math.random().toString(36).substring(7),
             text: nazwa,
+            time:czas(),
             completed: false,
         }
         setToDos([...todos, newTask])
     }
     
-        function name(params) {
-            
+        function czas() {
+            var teraz = new Date()
+            var rok = teraz.getFullYear()
+            var miesiac = teraz.getMonth()+1
+            var dzien = teraz.getDate()
+            var godzina = teraz.getHours()
+            var minuta = teraz.getMinutes()
+            var sekunda = teraz.getSeconds()
+            const FormatTime = (sec) => sec < 10 ? `0${sec}` : sec;
+            var chwila = (`${rok}.${miesiac}.${dzien} ${godzina}:${FormatTime(minuta)}:${FormatTime(sekunda)}`)
+            return(chwila)
         }
-        var teraz = new Date()
-        var rok = teraz.getFullYear()
-        var miesiac = teraz.getMonth()+1
-        var dzien = teraz.getDate()
-        var godzina = teraz.getHours()
-        var minuta = teraz.getMinutes()
-        var sekunda = teraz.getSeconds()
-        var chwila = (`${rok}.${miesiac}.${dzien} ${godzina}:${minuta}:${sekunda}`)
 
     return(
         
         <>
             <h1 style={{fontSize:'35px'}}>Lista Zadań</h1>
-            <p>{chwila}</p>
+            <p>{czas()}</p>
             <ul>
                 {
                     todos.map(task => (
                         <li style={{color:"#023047", fontSize:"20px", margin:"10px"}} 
                         key={task.id}>
                             {task.text}
+                            <a style={{fontSize:'11px', color:"white"}}>({task.time})</a>
                             <button style={{fontSize:'15px',margin:"10px", background:"darkred"}} onClick={()=>removeTasksHandler(task.id)}>Usuń</button>
                         </li>
                     ))
