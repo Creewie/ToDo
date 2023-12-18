@@ -45,14 +45,14 @@ const ToDo = () =>{
     }
     return(
         <div style={{border:'solid #ba181b 3px', borderRadius:'15px', padding:'175px', background:'#161a1d', fontFamily:'Outfit'}}>
-            <h1 style={{fontSize:'35px'}}>Lista Zadań</h1>
+            <h1 style={{fontSize:'40px'}}>Lista Zadań</h1>
             <ul>
                 {
                     todos.map(task => (
-                        <li style={{color:"#ba181b", fontSize:"20px", margin:"10px",listStyleType:"none"}} 
+                        <li style={{color:"#ba181b", fontSize:"23px", margin:"10px",listStyleType:"none"}} 
                         key={task.id}>
                             {task.text}
-                            <a style={{fontSize:'11px', color:"white"}}> ({task.time})</a>
+                            <a style={{fontSize:'12px', color:"white"}}> ({task.time})</a>
                             <button style={{fontSize:'15px',margin:"10px", background:"darkred"}} onClick={()=>removeTasksHandler(task.id)}>Usuń</button>
                         </li>
                     ))
