@@ -44,13 +44,12 @@ const ToDo = () =>{
         setToDos([...todos, newTask])
     }
     return(
-        
-        <div>
+        <div style={{border:'solid #ba181b 3px', borderRadius:'15px', padding:'175px', background:'#161a1d', fontFamily:'Outfit'}}>
             <h1 style={{fontSize:'35px'}}>Lista Zadań</h1>
             <ul>
                 {
                     todos.map(task => (
-                        <li style={{color:"#023047", fontSize:"20px", margin:"10px",listStyleType:"none"}} 
+                        <li style={{color:"#ba181b", fontSize:"20px", margin:"10px",listStyleType:"none"}} 
                         key={task.id}>
                             {task.text}
                             <a style={{fontSize:'11px', color:"white"}}> ({task.time})</a>
@@ -59,7 +58,7 @@ const ToDo = () =>{
                     ))
                 }
             </ul>
-                <button onClick={addNewTaskHandler}>Dodaj nowe</button>
+                <button style={{border:'solid darkred 2px'}} onClick={addNewTaskHandler}>Dodaj nowe</button>
         </div>  
     );
 }
