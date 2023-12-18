@@ -17,24 +17,26 @@ const ToDo = () =>{
         )
     }
     const addNewTaskHandler = ()=>{
+        var nazwa = prompt("Podaj nazwę zadania")
         const newTask={
             id: Math.random().toString(36).substring(7),
-            text: "Zupełnie nowe zadanie",
+            text: nazwa,
             completed: false,
         }
         setToDos([...todos, newTask])
     }
+    var teraz = new Date().getTime()
     return(
         
         <>
-            <h1>Jestem ToDo</h1>
+            <h1 style={{fontSize:'35px'}}>Lista Zadań {teraz}</h1>
             <ul>
                 {
                     todos.map(task => (
-                        <li style={{color:"#023047", fontSize:"19px", margin:"10px"}} 
+                        <li style={{color:"#023047", fontSize:"14px", margin:"10px"}} 
                         key={task.id}>
                             {task.text}
-                            <button style={{margin:"10px", background:"beige"}} onClick={()=>removeTasksHandler(task.id)}>Usun zadanie {task.id}</button>
+                            <button style={{margin:"10px", background:"darkred"}} onClick={()=>removeTasksHandler(task.id)}>Usun zadanie {task.id}</button>
                         </li>
                     ))
                 }
